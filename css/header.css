@@ -1,0 +1,178 @@
+header {    
+    height: auto;
+    width: 100%;    
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: var(--nav-bg-clr);    
+}
+
+header nav {     
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+
+    transition: all 350ms ease-in;
+}
+
+header nav .logo {
+    width: 100px;
+
+    transition: width 350ms ease-in;
+}
+
+header nav .nav-menu {    
+    width: 100%;
+    height: auto;
+    padding-left: 2em;
+    padding-block: 2.5em;
+
+    background-color: var(--nav-bg-clr);
+    backdrop-filter: blur(10px);
+
+    position: absolute;
+    top: -380px;
+    right: 0;
+    left:0;
+    z-index: -10;
+    
+    transition: top;
+    transition-duration: 1500ms;    
+}
+
+header nav .nav-menu.active {
+    top: 0;    
+}
+
+header nav .nav-menu .nav-links  {
+    width: 100%;
+    font-size: var(--copy);
+    font-weight: 500;
+    line-height: 2.5;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+header nav .nav-menu .nav-links .nav-item > a {
+    display: block;    
+    padding-block: 0.75em;
+    position: relative;   
+}
+
+header nav .nav-menu .nav-links .nav-item > a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 90%;
+    border-bottom: 2px solid var(--primary-clr);
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 350ms ease-in;
+}
+
+header nav .nav-menu .nav-links .nav-item > a:hover::after {    
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+header nav .nav-menu .nav-social-icons {
+    padding-top: 1em;
+    font-size: 1.4em;
+    letter-spacing: 0.25em;
+    color: var(--text-clr);
+
+    transition: color 350ms ease-in;
+}
+
+header nav .nav-menu .nav-social-icons .fa-brands:hover {
+    color: var(--primary-clr);
+}
+
+/* HAMBURGER */
+header nav .nav-burger {
+    cursor: pointer;
+}
+
+header nav .nav-burger .line1,
+header nav .nav-burger .line2,
+header nav .nav-burger .line3 {
+    width: 30px;
+    height:4px;
+    border-radius: 10px;
+    background-color: var(--primary-clr);
+
+    transition: all 350ms ease-in;
+}
+
+header nav .nav-burger div:first-child {
+    background-color: var(--text-clr);
+}
+
+header nav .nav-burger div:not(:first-child) {
+    margin-top: 3px;
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-4px, -6px);
+}
+
+
+@media screen and (min-width: 860px) {
+    header {
+        backdrop-filter: blur(10px);
+    }
+
+    header nav .logo {
+        width: 150px;
+    }
+    
+    header nav .nav-menu {
+        width: auto;
+        height:auto;
+        background-color: transparent;
+        backdrop-filter:unset;
+        position: unset;       
+        z-index: unset;
+        padding: 0em;
+    }
+
+    header nav .nav-menu .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5em;
+    }    
+
+    header nav .nav-menu .nav-links .nav-item > a {
+        line-height: 1.2;
+    }
+
+    header nav .nav-menu .nav-links .nav-item > a::after {
+        left: 0em;
+        width: 100%;      
+    }
+
+    header nav .nav-menu .nav-social-icons,    
+    header nav .nav-burger {
+        display: none;
+    }    
+}
+
+@media screen and (min-width: 1240px) {
+    header nav {
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
